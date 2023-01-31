@@ -1,6 +1,7 @@
 import pygame
 from Game import Game
 from config import sc
+from time import time
 
 def main():
     while 1:
@@ -8,8 +9,11 @@ def main():
             if event.type == pygame.QUIT: return
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and not Game.isBusy:
                 Game.onClick(*event.pos)
-                pygame.display.update()
-        clock.tick(20)
+        if Game.isBusy:
+            Game.animate()
+            pygame.display.update()
+            clock.tick(0)
+        else: clock.tick(5)
 
 if __name__ == '__main__':
     pygame.init()

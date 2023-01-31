@@ -18,5 +18,8 @@ class sc:
 	tileHeight = img.get_height()//cols
 	indent = 2
 
+	animateFrames = 20
+	animateCd = 0.15/animateFrames
+
 	h = img.get_height()+indent*(cols-1)
 	w = img.get_width()+indent*(rows-1)
