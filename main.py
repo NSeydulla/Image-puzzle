@@ -15,14 +15,12 @@ def main():
             clock.tick(0)
         else: clock.tick(5)
 
-if __name__ == '__main__':
-    pygame.init()
-    clock = pygame.time.Clock()
-    screen = pygame.display.set_mode((sc.w, sc.h))
-    pygame.display.set_caption("Image puzzle")
+clock = pygame.time.Clock()
+screen = pygame.display.set_mode((sc.w, sc.h))
+pygame.display.set_caption("Image puzzle")
 
-    Game = Game(screen, sc.img)
+Game = Game(screen, sc.img)
 
-    pygame.display.update()
-    main()
-    pygame.quit()
+pygame.display.update()
+main()
+pygame.quit()

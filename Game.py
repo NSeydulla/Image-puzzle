@@ -23,6 +23,7 @@ class Game():
             self.swapTiles(ch(self.getNeighbor()))
 
         self.initGame()
+        self.start = time()
     
     def initGame(self):
         for tile in self.tiles:
@@ -33,7 +34,7 @@ class Game():
             for j in range(sc.rows):
                 yi = i*sc.tileHeight+i*sc.indent
                 xj = j*sc.tileWidth+j*sc.indent
-                if xj<x<xj+sc.tileHeight and yi<y<yi+sc.tileWidth: return i*sc.rows+j
+                if xj<x<xj+sc.tileWidth and yi<y<yi+sc.tileHeight: return i*sc.rows+j
         return -1
 
     def swapTiles(self, index):
@@ -59,7 +60,7 @@ class Game():
             self.swapTiles(index)
             self.animatingTile = None
             if self.checkWin():
-                print('SOLVED!')
+                print('SOLVED! time:', time()-self.start)
 
     def checkWin(self):
         for i in range(sc.tileNum):
